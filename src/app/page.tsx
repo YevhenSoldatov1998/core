@@ -1,9 +1,15 @@
-import { Button } from "@/components/ui/button";
+import { dbClient } from "@/lib/db";
+import { CreateCourseForm } from "@/features/courses-list/pub/create-course-form";
+import { CoursesList } from "@/features/courses-list/pub/courses-list";
 
-export default function Home() {
+export default async function Home() {
+  const courses = await dbClient.course.findMany();
+
+  console.log(courses);
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <Button>Hello</Button>
+    <div className="flex min-h-screen flex-col p-8">
+      <CreateCourseForm revalidatePath="/" className="max-w-[300px] mb-5" />
+      <CoursesList revalidatePagePath="/" />
     </div>
   );
 }
