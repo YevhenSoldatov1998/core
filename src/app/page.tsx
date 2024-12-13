@@ -8,6 +8,7 @@ export default async function Home() {
   console.log(courses);
   return (
     <div className="flex min-h-screen flex-col p-8">
+      <h1>THIS IS TEST!!!!</h1>
       <CreateCourseForm revalidatePath="/" className="max-w-[300px] mb-5" />
       <CoursesList revalidatePagePath="/" />
     </div>
