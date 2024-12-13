@@ -1,5 +1,10 @@
 import { cache } from "react";
 import { dbClient } from "@/lib/db";
+import {
+  CourseListElement,
+  CreateCourseListElementCommand,
+  DeleteCourseListElementCommand,
+} from "@/features/courses-list/model/types";
 
 class CoursesRepository {
   getCoursesList = cache(

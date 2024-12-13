@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useTransition } from "react";
+import { CourseListElement } from "@/features/courses-list/model/types";
 
 export function CourseItem({
   course,

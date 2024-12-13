@@ -1,12 +1,12 @@
-type CourseListElement = {
+export type CourseListElement = {
   id: string;
   name: string;
   description: string;
 };
-type CreateCourseListElementCommand = {
+export type CreateCourseListElementCommand = {
   name: string;
   description: string;
 };
-type DeleteCourseListElementCommand = {
+export type DeleteCourseListElementCommand = {
   id: string;
 };
