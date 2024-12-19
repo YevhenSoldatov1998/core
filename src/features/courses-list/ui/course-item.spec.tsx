@@ -10,7 +10,7 @@ describe("course item", () => {
     render(
       <CourseItem
         course={{ id: "dsf", description: "sdfsd", name: "dsfdsf" }}
-        onDelete={onDelete}
+        onDelete={onDelete as never}
       />,
     );
     await userEvent.click(screen.getByText("Delete"));
