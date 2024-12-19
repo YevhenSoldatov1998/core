@@ -1,7 +1,7 @@
 import { test } from "@playwright/test";
 
 test("test", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("http://localhost:3000");
   // delete all items before starting the test
   await page.waitForSelector("text=Delete", { timeout: 2000 });
   const deleteButtons = await page.$$("text=Delete");
