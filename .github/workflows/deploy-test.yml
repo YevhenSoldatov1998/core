@@ -6,20 +6,20 @@ on:
       - development
 
 jobs:
-#  lint:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v4
-#      - uses: actions/setup-node@v3
-#        with:
-#          node-version: 20.x.x
-#          cache: npm
-#      - run: npm ci
-#      - run: npm run lint
-#      - run: npm run lint:types
-#      - run: npm run test
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20.x.x
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run lint:types
+      - run: npm run test
   deploy:
-#    needs: lint
+    needs: lint
     runs-on: ubuntu-latest
     concurrency:
       group: staging
@@ -33,4 +33,4 @@ jobs:
           user: ${{ secrets.STAGING_SSH_USERNAME }}
           private_key: ${{ secrets.STAGING_SSH_PRIVATE_KEY }}
           host_fingerprint: ${{ secrets.STAGING_SSH_FINGERPRINT }}
-          command: source ~/.nvm/nvm.sh; echo 'Hello world!'
+          command: source ~/.nvm/nvm.sh; ./deploy-test.sh
