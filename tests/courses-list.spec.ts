@@ -1,7 +1,7 @@
 import { test } from "@playwright/test";
 
 test("test", async ({ page }) => {
-  await page.goto("/");
+  await page.goto(process.env.PLAYWRIGHT_ENV_BASE_URL as string);
   await page.getByPlaceholder("Name...").click();
   await page.getByPlaceholder("Name...").fill("1");
   await page.getByPlaceholder("Description...").click();
